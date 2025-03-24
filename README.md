@@ -1,54 +1,124 @@
-# React + TypeScript + Vite
+# Airline Reservation System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple airline reservation system built using Java, Spring Boot, and React. It provides a RESTful API for managing flight reservations and a frontend for users to interact with the system.
 
-Currently, two official plugins are available:
+![image](https://github.com/user-attachments/assets/6100cf50-1190-4922-81c6-eadde733856c)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Add new reservations
+- Retrieve all reservations
+- User-friendly interface built with React
+- Uses Spring Boot with JPA for database management
+- Integration with React Query for efficient data fetching
 
-## Expanding the ESLint configuration
+## Technologies Used
+### Backend
+- Java
+- Spring Boot
+- Spring Data JPA
+- REST API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Frontend
+- React
+- TypeScript
+- React Query
+- Axios
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+
+### Prerequisites
+- Java 17 or later
+- Maven
+- Node.js and npm
+- A database (e.g., PostgreSQL, MySQL, or H2 for testing)
+
+### Steps
+#### Backend Setup
+1. Clone this repository:
+   ```sh
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
+   ```
+2. Build the backend project:
+   ```sh
+   mvn clean install
+   ```
+3. Run the backend application:
+   ```sh
+   mvn spring-boot:run
+   ```
+4. The backend will be available at `http://localhost:8080/`
+
+#### Frontend Setup
+1. Navigate to the frontend directory:
+   ```sh
+   cd frontend
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the frontend application:
+   ```sh
+   npm run dev
+   ```
+4. The frontend will be available at `http://localhost:5173/`
+
+## API Endpoints
+### Add a Reservation
+**POST /reserves**
+- Request Body:
+  ```json
+  {
+    "location": "New York",
+    "image": "image_url",
+    "price": 300.0
+  }
+  ```
+- Response: `201 Created`
+
+### Get All Reservations
+**GET /reserves**
+- Response:
+  ```json
+  [
+    {
+      "id": 1,
+      "location": "New York",
+      "image": "image_url",
+      "price": 300.0
+    }
+  ]
+  ```
+
+## Project Structure
+```
+├── backend
+│   ├── com.airline
+│   │   ├── AirlineApplication.java  # Main entry point
+│   │   ├── controller
+│   │   │   ├── ReserveController.java  # Handles API requests
+│   │   ├── models
+│   │   │   ├── Reserve.java  # Entity class
+│   │   │   ├── ReserveRepository.java  # JPA Repository
+│   │   │   ├── ReserveRequestDTD.java  # DTO for requests
+│   │   │   ├── ReserveRespondeDTD.java  # DTO for responses
+│
+├── frontend
+│   ├── src
+│   │   ├── App.tsx  # Main React component
+│   │   ├── components
+│   │   │   ├── Card.tsx  # UI component for displaying reservations
+│   │   │   ├── CreateModal.tsx  # UI component for adding reservations
+│   │   ├── hooks
+│   │   │   ├── useReserveData.ts  # Fetch reservations
+│   │   │   ├── useReserveDataMutate.ts  # Add reservations
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## License
+This project is licensed under the MIT License.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Feel free to modify this README as needed!
+
