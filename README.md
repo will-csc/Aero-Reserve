@@ -2,7 +2,7 @@
 
 This is a simple airline reservation system built using Java, Spring Boot, and React. It provides a RESTful API for managing flight reservations and a frontend for users to interact with the system.
 
-![image](https://github.com/user-attachments/assets/6100cf50-1190-4922-81c6-eadde733856c)
+![Aplicação](https://github.com/user-attachments/assets/3741301e-d781-4cae-abb7-a75b2dbc8f05)
 
 ## Features
 - Add new reservations
