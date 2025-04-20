@@ -36,7 +36,7 @@ This is a simple airline reservation system built using Java, Spring Boot, and R
 #### Backend Setup
 1. Clone this repository:
    ```sh
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/will-csc/Aero-Reserve.git
    cd your-repo
    ```
 2. Build the backend project:
